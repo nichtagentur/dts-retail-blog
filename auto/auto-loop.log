@@ -62,3 +62,4 @@ iter 2 FAILED
 [autopub]   video status: pending
 [autopub]   video status: completed
 [autopub] video failed, falling back to image-only: HTTP Error 401: Unauthorized
+[autopub] taking screenshot...
