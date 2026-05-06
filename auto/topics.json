@@ -1,0 +1,51 @@
+[
+  {
+    "slug": "ai-personalisierung-handel-2026",
+    "tag": "AI im Handel",
+    "tag_color": "purple",
+    "topic": "Wie generative KI 2026 die Ad-Personalisierung im stationaeren Handel veraendert - On-Site, In-Store-Apps, dynamische DOOH-Creatives. Mit konkreten Praxisbeispielen aus DACH und realistischer Einschaetzung der KPIs.",
+    "image_prompt": "Editorial business photo: a person in a modern apparel store browsing on a smartphone, the phone screen shows a clean abstract product UI with subtle gradients (no text, no logos), shop interior softly out of focus, warm directional light, muted palette navy beige steel, shot on Hasselblad medium format, shallow depth of field, cinematic mood, 16:9, no text, no signage, no watermark",
+    "video": false
+  },
+  {
+    "slug": "connected-tv-drive-to-store-2026",
+    "tag": "Connected TV",
+    "tag_color": "cyan",
+    "topic": "Connected TV als Drive-to-Store-Kanal in DACH 2026: Inventar, Geo-Targeting-Praezision, Footfall-Lift-Benchmarks, Vergleich mit linearer TV-Werbung, Mess-Frameworks. Mit Stolperfallen.",
+    "image_prompt": "Editorial photo: modern living room at dusk, large smart TV mounted on a warm wood wall, screen completely off (black, no graphics, no text), single warm reading lamp, magazine on the sofa, soft cinematic light, navy and cream palette, Hasselblad medium format, 16:9, no text, no logos, no watermark",
+    "video": false
+  },
+  {
+    "slug": "in-store-audio-programmatic-2026",
+    "tag": "In-Store",
+    "tag_color": "yellow",
+    "topic": "In-Store-Audio und Programmatic Audio Werbung 2026: wie Filialen zu Audio-Werbeflaechen werden, Buchungsmodelle, Mess-Setup, Anbieterlandschaft DACH (REWE, Lidl, Spar, dm-Konzepte), Kosten und realistische ROI-Indikatoren.",
+    "image_prompt": "Editorial photo: close-up of a small studio-quality speaker on a clean shelf in a modern supermarket aisle, soft warm light glow on packaged products in background (products generic, no text), shallow depth of field, navy and beige palette, Hasselblad medium format, 16:9, no text, no logos, no watermark",
+    "video": false
+  },
+  {
+    "slug": "loyalty-daten-dsgvo-2026",
+    "tag": "Privacy",
+    "tag_color": "coral",
+    "topic": "Loyalty-Daten als Werbe-Asset 2026 und der DSGVO-Rahmen: Was Haendler tun duerfen, was nicht, wie Clean Rooms funktionieren, EuGH-Rechtsprechung 2024-2026, was 2026 abmahnsicher ist.",
+    "image_prompt": "Editorial photo: a hand holding a generic loyalty card over a wooden cafe table next to an open laptop showing soft abstract data visualisation (no readable text), warm morning light, muted navy and cream palette, Hasselblad medium format, 16:9, no text, no logos, no watermark",
+    "video": false
+  },
+  {
+    "slug": "programmatic-dooh-trends-2026",
+    "tag": "DOOH",
+    "tag_color": "purple",
+    "topic": "Programmatic DOOH Trends 2026: dynamische Creatives nach Wetter und Tageszeit, Audience-Extension, neue Inventar-Klassen (Tankstellen, U-Bahn, Einkaufszentren), CPV-Benchmarks DACH, Mess-Setup-Empfehlungen.",
+    "image_prompt": "Editorial photo: a large pristine digital advertising screen at a metro station entrance at dusk, screen completely blank (deep navy, no graphics, no text), commuters walking past in soft motion blur, warm street lights, cinematic mood, navy palette with warm accents, Hasselblad medium format, 16:9, no text, no logos, no watermark",
+    "video": true,
+    "video_prompt": "Editorial cinematic 4-second motion clip: smooth slow camera dolly-in on a large digital advertising screen at a modern European metro station entrance at dusk, screen stays completely blank dark navy (no text, no graphics), warm street lights and commuters in soft motion blur in foreground, gentle ambient city sound, no voiceover, no music with vocals, cinematic colour grade, navy and warm-amber palette, no logos, no watermark, no signage with text"
+  },
+  {
+    "slug": "chatgpt-search-retail-seo-2026",
+    "tag": "AI Search",
+    "tag_color": "cyan",
+    "topic": "ChatGPT Search, Google AI Overviews und ihre Folgen fuer Retail-SEO 2026: was sich am Suchverhalten aendert, wie Haendler ihre Produkt- und Filialseiten anpassen, strukturierte Daten, Sichtbarkeit in AI-Antworten, Mess-Methoden.",
+    "image_prompt": "Editorial photo: an open laptop on a clean marble desk showing an abstract search-results interface with soft gradient cards (no readable text), a small notebook with handwriting blurred next to it, soft morning light through a window, navy and warm beige palette, Hasselblad medium format, 16:9, no text, no logos, no watermark",
+    "video": false
+  }
+]
