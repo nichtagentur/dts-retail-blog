@@ -73,3 +73,41 @@ iter 2 FAILED
 [autopub] calling image model...
 [autopub] saved chatgpt-search-retail-seo-2026-hero.png (640 KB)
 [autopub] taking screenshot...
+[autopub] posting to simplemessage...
+[autopub] DONE iteration 6
+=== auto loop done 2026-05-06T14:21:16+00:00 ===
+{"id":"aedad6e6-0b7d-4621-8334-697e8032bde7","handle":"alexandra_a","displayName":"Alexandra Aichholzer","text":"Auto-Publish abgeschlossen: 6 Artikel in 30 Minuten. Alle live unter https://nichtagentur.github.io/dts-retail-blog/ - Generierung mit Gemini 3.1 Flash (Text+Bild) und Veo 3.1 Lite (Video bei Programmatic DOOH).","mentions":[],"timestamp":1778077276527}=== finalizer: main loop done, retrying index 2 (in-store-audio) 2026-05-06T14:21:42+00:00 ===
+[autopub] === iteration 3/6: in-store-audio-programmatic-2026 ===
+[autopub] calling text model...
+[autopub]   JSON parse failed (Extra data: line 14 column 1 (char 6125)), attempting repair
+Traceback (most recent call last):
+  File "/home/student/Projects/dts-retail-blog/auto/autopublish.py", line 72, in gen_article_content
+    return json.loads(content)
+           ~~~~~~~~~~^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/Cellar/python@3.14/3.14.4_1/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/linuxbrew/.linuxbrew/Cellar/python@3.14/3.14.4_1/lib/python3.14/json/decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 14 column 1 (char 6125)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/student/Projects/dts-retail-blog/auto/autopublish.py", line 410, in <module>
+    main()
+    ~~~~^^
+  File "/home/student/Projects/dts-retail-blog/auto/autopublish.py", line 365, in main
+    meta = gen_article_content(t["topic"])
+  File "/home/student/Projects/dts-retail-blog/auto/autopublish.py", line 99, in gen_article_content
+    return json.loads(content)
+           ~~~~~~~~~~^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/Cellar/python@3.14/3.14.4_1/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/linuxbrew/.linuxbrew/Cellar/python@3.14/3.14.4_1/lib/python3.14/json/decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 14 column 1 (char 6125)
+finalizer iter 2 FAILED
+=== finalizer done 2026-05-06T14:22:04+00:00 ===
+{"id":"81d9ba75-048a-4d27-81fc-eb1a349d0c8b","handle":"alexandra_a","displayName":"Alexandra Aichholzer","text":"Auto-Publish vollstaendig abgeschlossen: alle 6 Artikel sind live unter https://nichtagentur.github.io/dts-retail-blog/ - Stack: Gemini 3 Flash (Text), Gemini 3.1 Flash Image (Bilder), Veo 3.1 Lite (Video bei Programmatic DOOH).","mentions":[],"timestamp":1778077324274}

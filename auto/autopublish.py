@@ -68,8 +68,10 @@ Antworte AUSSCHLIESSLICH als JSON-Objekt mit den Feldern:
     content = resp["choices"][0]["message"]["content"]
     # strip code fences if present
     content = re.sub(r"^```(?:json)?\s*|\s*```$", "", content.strip(), flags=re.M)
+    # Use raw_decode to ignore trailing extra data
     try:
-        return json.loads(content)
+        obj, _ = json.JSONDecoder().raw_decode(content)
+        return obj
     except json.JSONDecodeError as e:
         log(f"  JSON parse failed ({e}), attempting repair")
         # Repair: in body_html string, replace unescaped " (not preceded by \) with '
