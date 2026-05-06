@@ -148,8 +148,15 @@ def gen_video(prompt, out_path):
                     or [])
             if not urls:
                 raise RuntimeError(f"No urls: {json.dumps(status_resp)[:400]}")
-            with urllib.request.urlopen(urls[0], timeout=120) as r:
-                out_path.write_bytes(r.read())
+            try:
+                with urllib.request.urlopen(urls[0], timeout=120) as r:
+                    out_path.write_bytes(r.read())
+            except urllib.error.HTTPError:
+                # try with auth header (some openrouter video URLs need it)
+                req = urllib.request.Request(urls[0],
+                    headers={"Authorization": f"Bearer {OR_KEY}"})
+                with urllib.request.urlopen(req, timeout=120) as r:
+                    out_path.write_bytes(r.read())
             log(f"saved video {out_path.name}")
             return True
         if status in ("failed", "cancelled", "error"):
