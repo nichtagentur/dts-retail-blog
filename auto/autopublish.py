@@ -301,12 +301,22 @@ def post_simplemessage(text):
     if not SM_KEY:
         log("WARN: no SIMPLEMESSAGE_API_KEY"); return
     body = json.dumps({"text": text}).encode()
-    req = urllib.request.Request(
-        "https://simplemessage.franzai.com/api/messages", data=body,
-        headers={"Authorization": f"Bearer {SM_KEY}", "Content-Type": "application/json"},
-    )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
+    last_err = None
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(
+                "https://simplemessage.franzai.com/api/messages", data=body,
+                headers={"Authorization": f"Bearer {SM_KEY}", "Content-Type": "application/json",
+                         "User-Agent": "dts-retail-blog-auto/1"},
+            )
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return json.load(r)
+        except Exception as e:
+            last_err = e
+            log(f"  simplemessage attempt {attempt+1} failed: {e}")
+            time.sleep(5 * (attempt + 1))
+    log(f"  simplemessage post FAILED after retries: {last_err}")
+    return None
 
 def main():
     idx = int(sys.argv[1])

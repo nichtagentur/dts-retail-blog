@@ -5,7 +5,7 @@ source ~/.env  # SIMPLEMESSAGE_API_KEY + OPENROUTER_API_KEY
 cd "$(dirname "$0")/.."
 LOG="auto/auto-loop.log"
 echo "=== auto loop start $(date -Is) ===" >> "$LOG"
-for i in 0 1 2 3 4 5; do
+for i in 1 2 3 4 5; do
     echo "--- iteration $i start $(date -Is) ---" >> "$LOG"
     python3 auto/autopublish.py "$i" >> "$LOG" 2>&1 || echo "iter $i FAILED" >> "$LOG"
     if [ "$i" != "5" ]; then
