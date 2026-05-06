@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Geofencing & Footfall-Attribution 2026: ROI sauber messen</title>
+<meta name="description" content="Wie man 2026 Drive-to-Store-Kampagnen valide misst: Geofencing-Methoden, Geo-Holdout-Design, DSGVO-Realitaet und ein KPI-Dashboard-Template.">
+<link rel="canonical" href="https://nichtagentur.github.io/dts-retail-blog/artikel/geofencing-roi-messen.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Geofencing & Footfall-Attribution 2026: ROI sauber messen">
+<meta property="og:description" content="Methoden, Holdout-Design und DSGVO-Realitaet 2026.">
+<meta property="og:url" content="https://nichtagentur.github.io/dts-retail-blog/artikel/geofencing-roi-messen.html">
+<meta property="og:image" content="https://nichtagentur.github.io/dts-retail-blog/assets/img/article3-hero.png">
+<meta property="article:published_time" content="2026-05-06">
+<meta property="article:author" content="Alexandra Aichholzer">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap">
+<link rel="icon" href="../favicon.ico" type="image/png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="preload" as="image" href="../assets/img/article3-hero.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Geofencing & Footfall-Attribution: ROI von Drive-to-Store sauber messen",
+  "description": "Methoden, Geo-Holdout-Design und DSGVO-Realitaet 2026.",
+  "image": ["https://nichtagentur.github.io/dts-retail-blog/assets/img/article3-hero.png"],
+  "datePublished": "2026-05-06",
+  "dateModified": "2026-05-06",
+  "inLanguage": "de-AT",
+  "author": {"@type": "Person", "name": "Alexandra Aichholzer", "url": "https://nichtagentur.github.io/dts-retail-blog/about.html"},
+  "publisher": {"@type": "Organization", "name": "StoreSignal Editorial", "url": "https://nichtagentur.github.io/dts-retail-blog/"},
+  "mainEntityOfPage": "https://nichtagentur.github.io/dts-retail-blog/artikel/geofencing-roi-messen.html",
+  "keywords": "Geofencing, Footfall Attribution, Store Visits, Incrementality, Geo-Holdout, DSGVO"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://nichtagentur.github.io/dts-retail-blog/"},
+    {"@type": "ListItem", "position": 2, "name": "Messung", "item": "https://nichtagentur.github.io/dts-retail-blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Geofencing & ROI 2026"}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/">Store<span>Signal</span></a>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a href="/">Artikel</a>
+      <a href="../about.html">Ueber uns</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="article">
+  <nav class="article__breadcrumbs" aria-label="Breadcrumb">
+    <a href="../">Start</a> &rsaquo; <span>Messung & Attribution</span>
+  </nav>
+
+  <header class="article__header">
+    <span class="article__tag" style="background:var(--c-coral);color:var(--c-cream);">Messung</span>
+    <h1 class="article__title">Geofencing & Footfall-Attribution: ROI von Drive-to-Store sauber messen</h1>
+    <p class="article__lede">Wer 2026 Drive-to-Store-Kampagnen verantwortet, lebt mit einem unangenehmen Befund: Die meisten Footfall-Reportings sind ueberoptimistisch. Wer das aendern will, braucht weniger Daten und mehr Disziplin - vor allem im Studiendesign.</p>
+    <div class="article__meta">
+      <span><strong>Autorin:</strong> <a href="../about.html">Alexandra Aichholzer</a></span>
+      <span><strong>Veroeffentlicht:</strong> 6. Mai 2026</span>
+      <span><strong>Lesezeit:</strong> 10 Minuten</span>
+    </div>
+  </header>
+
+  <figure class="article__hero">
+    <img src="../assets/img/article3-hero.png" alt="Naechtliche Stadtansicht mit einem leuchtenden Geofence-Ring um ein Geschaeft" width="1600" height="900">
+    <figcaption>Geofencing 2026: weniger Magie, mehr Statistik.</figcaption>
+  </figure>
+
+  <div class="article__body">
+    <p>Es gibt einen Lieblingssatz, mit dem Mediaplattformen Footfall-Erfolge verkaufen: "Unsere Kampagne hat 12.000 Store-Visits generiert." Die richtige Reaktion darauf besteht 2026 aus genau einer Frage: <em>Verglichen womit?</em></p>
+    <p>Footfall-Attribution ohne sauberes Studiendesign ist kein Messen, sondern Erzaehlen. Dieser Artikel beschreibt, wie der Methodenkasten 2026 wirklich aussieht - und welche Fallen man vermeidet, wenn man ehrliche Zahlen will.</p>
+
+    <h2>Die drei Geofencing-Methoden 2026 - mit ehrlichen Schwaechen</h2>
+
+    <h3>1. SDK-basierte Standortdaten</h3>
+    <p>SDKs in Drittanbieter-Apps (Wetter, News, Routenplaner) liefern anonymisierte GPS-Punkte, ueber die sich Geofence-Eintritte rekonstruieren lassen. Anbieter: Adsquare, Foursquare/Factual, Near, Veraset.</p>
+    <p><strong>Staerken:</strong> hohe Genauigkeit, Cross-Channel-Aussteuerung mit denselben IDs moeglich.</p>
+    <p><strong>Schwaechen:</strong> Reichweite sinkt seit iOS 14.5 jaehrlich. 2026 sind in DACH realistische Coverage-Werte je nach Anbieter 12 bis 28 Prozent der Bevoelkerung. Das ist genug fuer Inkrementalitaetsmessung, aber zu wenig fuer absolute Visit-Zahlen.</p>
+
+    <h3>2. WiFi-/Bluetooth-Sensoren in der Filiale</h3>
+    <p>Hardware-Sensoren erkennen MAC-Adressen oder BLE-Beacons im Filialbereich. Anbieter: Locatify, Skyfii, einige Eigenentwicklungen grosser Haendler.</p>
+    <p><strong>Staerken:</strong> sehr genaue Filial-spezifische Frequenzdaten, unabhaengig vom Werbe-Ecosystem.</p>
+    <p><strong>Schwaechen:</strong> moderne Smartphones randomisieren MAC-Adressen - aggregierte Trends bleiben verlaesslich, individuelles Tracking nicht. Fuer Inkrementalitaet daher nur in Verbindung mit Geo-Holdouts brauchbar, nicht fuer User-Level-Attribution.</p>
+
+    <h3>3. Panel-basierte Visit-Messung</h3>
+    <p>Ein opt-in-rekrutiertes, repraesentatives Panel (z.B. GfK Movement Panel, Shopfully Panel, Adsquare Panel) liefert Visit-Daten gegen Kampagnen-Exposure. Hochskalierung auf Bevoelkerungsebene erfolgt statistisch.</p>
+    <p><strong>Staerken:</strong> Goldstandard fuer Inkrementalitaet im DACH-Raum 2026, DSGVO-konform aufgesetzt, transparente Methodik.</p>
+    <p><strong>Schwaechen:</strong> traegere Berichts-Zyklen (oft 14-28 Tage Latenz), eingeschraenkte Granularitaet bei kleinen Filialnetzen.</p>
+
+    <h2>Geo-Holdout: das einzige Studiendesign, das Inkrementalitaet wirklich misst</h2>
+    <p>Wer auf User-Level-IDs setzt, kann 2026 nicht mehr robust testen. Was ueberall funktioniert, ist die geographische Holdout-Methode: Ein Teil der Filialen oder PLZ-Gebiete erhaelt waehrend der Testphase kein zusaetzliches Mediabudget. Die Differenz zwischen Test- und Holdout-Gebieten - statistisch korrigiert - ist die inkrementelle Wirkung.</p>
+
+    <p>Ein gutes Holdout-Setup hat fuenf Bauteile:</p>
+    <ol>
+      <li><strong>Saubere Geo-Cluster.</strong> Nicht zufaellig zerschnitten, sondern entlang Filialeinzugsgebieten oder PLZ-Hauptzonen, mit minimaler Spillover-Gefahr (z.B. keine Test- und Holdout-Filiale im selben Einkaufszentrum).</li>
+      <li><strong>Matched Pairs.</strong> Test- und Holdout-Cluster werden anhand historischer Visit-Trends gepaart. Frequenzunterschiede vor dem Test muessen unter 5 Prozent liegen.</li>
+      <li><strong>Mindestlaufzeit von 4 Wochen.</strong> Kuerzer reicht in den meisten Kategorien nicht fuer statistische Signifikanz - vor allem nicht bei seltenen Kategorien wie Mobiliar oder Optik.</li>
+      <li><strong>Pre-Period Mess-Baseline.</strong> Mindestens 8 Wochen Visit-Daten vor dem Test als Referenz. Ohne das wird jede saisonale Schwankung als "Effekt" miss-interpretiert.</li>
+      <li><strong>Sauberes Holdout-Mediablocking.</strong> Im Holdout-Gebiet darf KEIN Mediabudget aus anderen, parallelen Kampagnen laufen, das die Sauberkeit kontaminiert. Klingt banal - ist 2026 die haeufigste Bruchstelle.</li>
+    </ol>
+
+    <figure>
+      <img src="../assets/img/article3-inline.png" alt="Analytics-Dashboard mit Diagrammen auf einem Bildschirm" width="1600" height="900" loading="lazy">
+      <figcaption>Ein Footfall-Dashboard taugt nur so viel wie das Studiendesign dahinter.</figcaption>
+    </figure>
+
+    <h2>DSGVO 2026: Was ist erlaubt, was nicht</h2>
+    <p>Der Datenschutzrahmen hat sich seit dem EuGH-Urteil zu Standortdaten Mitte 2024 weiter verschaerft. Fuer Drive-to-Store-Messung sind 2026 drei Punkte verbindlich:</p>
+    <ul>
+      <li><strong>Opt-in-basis ist Pflicht.</strong> Sowohl SDK-Anbieter als auch Loyalty-Programme muessen einen klaren, granularen Consent fuer Werbe-/Mess-Zwecke einholen. Dark-Pattern-Cookie-Banner reichen nicht; das wurde 2025 mehrfach abgemahnt.</li>
+      <li><strong>Aggregation vor Auslieferung.</strong> Zu Reporting-Zwecken muessen Visit-Zahlen so aggregiert sein, dass keine Einzelperson ableitbar ist (in der Praxis: Mindestschwellen von 5 oder 10 Visits pro Cluster).</li>
+      <li><strong>Datentransfer in die USA bleibt heikel.</strong> Anbieter, deren Verarbeitung ueber US-Server laeuft, brauchen 2026 ein belastbares Standardvertragsklausel-Setup plus Transfer Impact Assessment. Wer das nicht dokumentieren kann, ist im Audit angreifbar.</li>
+    </ul>
+    <p>Praxis: Halten Sie sich an europaeische Anbieter mit dokumentierter EU-Datenhaltung. Es ist 2026 kein Komfortargument mehr, sondern ein Compliance-Argument.</p>
+
+    <h2>KPI-Dashboard-Template fuer Footfall-Attribution</h2>
+    <p>Was sollte 2026 in jedem Footfall-Dashboard stehen, das den Namen verdient? Vier Bloecke:</p>
+    <ol>
+      <li><strong>Visit-Volumen Test vs. Holdout</strong>, taeglich, mit gleitendem 7-Tage-Mittel.</li>
+      <li><strong>Visit Lift in Prozent</strong>, mit Konfidenzintervall (95 Prozent), nicht nur Punktschaetzer.</li>
+      <li><strong>Cost per inkrementellem Visit</strong>, gerechnet ueber alle gemessenen Kanaele zusammen <em>und</em> je Kanal.</li>
+      <li><strong>Methodische Notiz</strong>, sichtbar im Dashboard: Datenquelle, Holdout-Setup, Pre-Period, Confidence-Modell. Was die Plattformen gerne weglassen, gehoert vorne hin.</li>
+    </ol>
+
+    <h2>Die fuenf haeufigsten Mess-Fehler 2026</h2>
+    <blockquote>"Wir haben in den Test-Gebieten 11 Prozent Lift gesehen." Schoen. Bei welchem Konfidenzniveau? Welcher Pre-Period? Welchem Holdout-Cluster?</blockquote>
+    <ul>
+      <li><strong>Kein Holdout.</strong> Schon erwaehnt, aber 2026 immer noch der Fehler Nummer eins.</li>
+      <li><strong>Selection-Bias bei Cluster-Wahl.</strong> Wer "die schwachen Filialen" als Test waehlt, sieht groessere Effekte - das ist Auswahl, nicht Wirkung.</li>
+      <li><strong>Vermischung mit anderen Kampagnen.</strong> Eine parallele Loyalty-Aktion oder eine TV-Kampagne im Holdout-Gebiet zerstoert den Vergleich.</li>
+      <li><strong>Saisonalitaet nicht korrigiert.</strong> Ein Visit-Anstieg im Dezember beweist nicht die Werbewirkung, sondern Weihnachten.</li>
+      <li><strong>Plattform-Self-Reporting unkritisch uebernommen.</strong> Plattform-Visit-Modelle ueberschaetzen DTS-Wirkung systematisch um 18 bis 35 Prozent (siehe <a href="drive-to-store-2026.html">Drive-to-Store 2026</a>). Ohne externe Validierung steht jede ROAS-Aussage auf Sand.</li>
+    </ul>
+
+    <h2>Fazit</h2>
+    <p>Footfall-Attribution ist 2026 weniger ein Tool-Problem als ein Disziplin-Problem. Die Methoden sind verfuegbar, die Anbieter solide, der DSGVO-Rahmen klar. Was selten genug ist, ist die Bereitschaft, sauber zu testen - mit Holdouts, mit ehrlichen Konfidenzintervallen, mit methodischen Fussnoten im Reporting. Wer diese Disziplin investiert, bekommt nicht nur saubere Zahlen. Sondern auch Glaubwuerdigkeit gegenueber CFOs, die 2026 zunehmend genau hinsehen, wenn Marketing "Wirkung" sagt.</p>
+  </div>
+
+  <aside class="author-box">
+    <div class="author-box__inner">
+      <div class="author-box__avatar" aria-hidden="true">AA</div>
+      <div class="author-box__text">
+        <strong>Alexandra Aichholzer</strong>
+        <p>Chefredakteurin StoreSignal. Hat seit 2019 ueber 40 Footfall-Studien im DACH-Raum methodisch begleitet.</p>
+        <p><a href="../about.html">Mehr ueber die Redaktion</a></p>
+      </div>
+    </div>
+  </aside>
+
+  <section class="refs" aria-label="Quellen">
+    <h2>Quellen & weiterfuehrende Links</h2>
+    <ol>
+      <li>EuGH, Urteil C-555/22 zu Standortdaten in der Werbeauslieferung, Juni 2024.</li>
+      <li>Adsquare DACH Coverage Report 2026, intern verfuegbar Maerz 2026.</li>
+      <li>GfK, "Movement Panel Methodik 2025/2026", Methoden-Whitepaper.</li>
+      <li>Datenschutzbehoerde Oesterreich, Bescheid zu Cookie-Banner-Designs, Q1/2025.</li>
+    </ol>
+  </section>
+
+  <section class="related" aria-label="Verwandte Artikel">
+    <h2>Verwandte Artikel</h2>
+    <div class="cards">
+      <article class="card">
+        <a href="drive-to-store-2026.html" class="card__media" aria-hidden="true" tabindex="-1">
+          <img src="../assets/img/article1-hero.png" alt="" width="640" height="360" loading="lazy">
+        </a>
+        <div class="card__body">
+          <span class="card__tag">Drive-to-Store</span>
+          <h2 class="card__title"><a href="drive-to-store-2026.html">Digitales Drive-to-Store-Marketing 2026</a></h2>
+          <p class="card__excerpt">KPIs, Channel-Mix, Mess-Frameworks und ein DACH-Praxisbeispiel.</p>
+        </div>
+      </article>
+      <article class="card">
+        <a href="retail-media-networks.html" class="card__media" aria-hidden="true" tabindex="-1">
+          <img src="../assets/img/article2-hero.png" alt="" width="640" height="360" loading="lazy">
+        </a>
+        <div class="card__body">
+          <span class="card__tag">Retail Media</span>
+          <h2 class="card__title"><a href="retail-media-networks.html">Retail Media Networks 2026</a></h2>
+          <p class="card__excerpt">Carrefour Links, REWE RMN, Amazon Ads - was First-Party-Daten wirklich wert sind.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <h3>StoreSignal</h3>
+      <p>Unabhaengige Fachredaktion fuer Drive-to-Store und Retail Media im deutschsprachigen Raum.</p>
+    </div>
+    <div>
+      <h3>Themen</h3>
+      <ul>
+        <li><a href="drive-to-store-2026.html">Drive-to-Store</a></li>
+        <li><a href="retail-media-networks.html">Retail Media</a></li>
+        <li><a href="geofencing-roi-messen.html">Messung & Attribution</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Redaktion</h3>
+      <ul>
+        <li><a href="../about.html">Ueber uns</a></li>
+        <li><a href="mailto:redaktion@storesignal.example">redaktion@storesignal.example</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__legal">
+    <span>(c) 2026 StoreSignal Editorial</span>
+    <span><a href="../about.html#impressum">Impressum</a> - <a href="../about.html#datenschutz">Datenschutz</a></span>
+  </div>
+</footer>
+</body>
+</html>

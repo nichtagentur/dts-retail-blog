@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nichtagentur.github.io/dts-retail-blog/sitemap.xml
