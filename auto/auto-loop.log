@@ -6,3 +6,36 @@
 [autopub] calling image model...
 [autopub] saved connected-tv-drive-to-store-2026-hero.png (1585 KB)
 [autopub] taking screenshot...
+[autopub] posting to simplemessage...
+[autopub] DONE iteration 2
+--- iteration 1 end, sleeping 300s ---
+--- iteration 2 start 2026-05-06T14:03:20+00:00 ---
+[autopub] === iteration 3/6: in-store-audio-programmatic-2026 ===
+[autopub] calling text model...
+Traceback (most recent call last):
+  File "/home/student/Projects/dts-retail-blog/auto/autopublish.py", line 373, in <module>
+    main()
+    ~~~~^^
+  File "/home/student/Projects/dts-retail-blog/auto/autopublish.py", line 328, in main
+    meta = gen_article_content(t["topic"])
+  File "/home/student/Projects/dts-retail-blog/auto/autopublish.py", line 69, in gen_article_content
+    return json.loads(content)
+           ~~~~~~~~~~^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/Cellar/python@3.14/3.14.4_1/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/linuxbrew/.linuxbrew/Cellar/python@3.14/3.14.4_1/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/Cellar/python@3.14/3.14.4_1/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 5 column 2581 (char 3113)
+iter 2 FAILED
+--- iteration 2 end, sleeping 300s ---
+--- iteration 3 start 2026-05-06T14:08:31+00:00 ---
+[autopub] === iteration 4/6: loyalty-daten-dsgvo-2026 ===
+[autopub] calling text model...
+[autopub] got article: title='Loyalty-Daten als Retail Media Asset 2026: Compliance und St' body=5605b
+[autopub] calling image model...
+[autopub] saved loyalty-daten-dsgvo-2026-hero.png (1543 KB)

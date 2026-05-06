@@ -50,11 +50,13 @@ def gen_article_content(topic):
 Schreibe seriose, faktenorientierte Fachartikel mit konkreten Zahlen, Quellen-Hinweisen und realistischen Einschaetzungen.
 Nutze deutsche Rechtschreibung mit ASCII-Ersatz fuer Umlaute (ae, oe, ue, ss). Keine Emoji.
 
+WICHTIG: Verwende im body_html KEINE doppelten Anfuehrungszeichen (") - weder fuer HTML-Attribute noch innerhalb des Texts. Verwende stattdessen einfache Anfuehrungszeichen ' oder das Zeichen >. Nutze KEINE HTML-Attribute auf den Tags (also <p> nicht <p class='x'>). Das ist absolut kritisch, weil dein Output durch JSON-Parser laeuft.
+
 Antworte AUSSCHLIESSLICH als JSON-Objekt mit den Feldern:
 - title: max 70 Zeichen, suchmaschinen-optimiert
 - description: max 155 Zeichen Meta-Description
 - lede: 1-2 Saetze Einleitungs-Lede
-- body_html: Artikel-Body als HTML, ca. 800-1100 Woerter, nutze h2, h3, p, ul, ol, li, strong, blockquote, optional table/thead/tbody/tr/th/td. KEIN html/body/h1/article-Tag, KEIN img-Tag. Mind. 3 h2-Sektionen, mind. 1 Liste, mind. 1 blockquote oder Tabelle. Saubere fachliche Argumentation.
+- body_html: Artikel-Body als HTML, ca. 800-1100 Woerter, nutze h2, h3, p, ul, ol, li, strong, blockquote, optional table/thead/tbody/tr/th/td. KEIN html/body/h1/article-Tag, KEIN img-Tag. Mind. 3 h2-Sektionen, mind. 1 Liste, mind. 1 blockquote oder Tabelle. KEINE doppelten Anfuehrungszeichen im Text. Saubere fachliche Argumentation.
 - references: Array von 3-4 plausiblen Quellen-Hinweisen als kurze Strings"""
     msg = [
         {"role": "system", "content": sys_prompt},
@@ -66,7 +68,35 @@ Antworte AUSSCHLIESSLICH als JSON-Objekt mit den Feldern:
     content = resp["choices"][0]["message"]["content"]
     # strip code fences if present
     content = re.sub(r"^```(?:json)?\s*|\s*```$", "", content.strip(), flags=re.M)
-    return json.loads(content)
+    try:
+        return json.loads(content)
+    except json.JSONDecodeError as e:
+        log(f"  JSON parse failed ({e}), attempting repair")
+        # Repair: in body_html string, replace unescaped " (not preceded by \) with '
+        # Find body_html: "..."  span and clean it
+        m = re.search(r'"body_html"\s*:\s*"', content)
+        if m:
+            start = m.end()
+            # Walk until we find the matching closing quote that's followed by , or }
+            depth = 0
+            i = start
+            while i < len(content):
+                ch = content[i]
+                if ch == "\\":
+                    i += 2; continue
+                if ch == '"':
+                    # peek ahead skipping whitespace for , or }
+                    j = i + 1
+                    while j < len(content) and content[j] in " \t\r\n":
+                        j += 1
+                    if j < len(content) and content[j] in ",}":
+                        end = i
+                        inner = content[start:end]
+                        cleaned = inner.replace('"', "'")
+                        content = content[:start] + cleaned + content[end:]
+                        break
+                i += 1
+        return json.loads(content)
 
 def gen_image(prompt, out_path):
     log("calling image model...")
