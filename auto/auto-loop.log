@@ -40,3 +40,25 @@ iter 2 FAILED
 [autopub] calling image model...
 [autopub] saved loyalty-daten-dsgvo-2026-hero.png (1543 KB)
 [autopub] taking screenshot...
+[autopub] posting to simplemessage...
+[autopub] DONE iteration 4
+--- iteration 3 end, sleeping 300s ---
+=== finalizer waiting for main loop 2026-05-06T14:09:34+00:00 ===
+=== finalizer waiting for main loop 2026-05-06T14:09:42+00:00 ===
+--- iteration 4 start 2026-05-06T14:14:02+00:00 ---
+[autopub] === iteration 5/6: programmatic-dooh-trends-2026 ===
+[autopub] calling text model...
+[autopub] got article: title='Programmatic DOOH Trends 2026: Dynamik und Retail Media Syne' body=4948b
+[autopub] calling image model...
+[autopub] saved programmatic-dooh-trends-2026-hero.png (820 KB)
+[autopub] calling video model (Veo 3.1 Lite)...
+[autopub] video job piMppkB5ds2UbQxkFqdk, polling...
+[autopub]   video status: pending
+[autopub]   video status: pending
+[autopub]   video status: pending
+[autopub]   video status: pending
+[autopub]   video status: pending
+[autopub]   video status: pending
+[autopub]   video status: pending
+[autopub]   video status: completed
+[autopub] video failed, falling back to image-only: HTTP Error 401: Unauthorized
